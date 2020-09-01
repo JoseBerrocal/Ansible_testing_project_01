@@ -23,22 +23,9 @@ This project goal is to do a small example how to use this technology:
 ## Pre-requisites
 
 1. Create the user
-2. Create a policy with the following permissions:   
-    - iam:CreateInstanceProfile
-    - iam:DeleteInstanceProfile
-    - iam:PassRole
-    - iam:DeleteRolePolicy
-    - iam:RemoveRoleFromInstanceProfile
-    - iam:CreateRole
-    - iam:DeleteRole
-    - iam:PutRolePolicy
-    - iam:AddRoleToInstanceProfile
-3. Add the following policies to a user:
-    - AmazonEC2FullAccess
-    - AWSCloudFormationFullAccess
-    - Policy from point 2.
-4. Configure the user in aws cli in your standalone environment
-6. Create a KeyPair (For this case I use "jb_aws_keypair.pem")
+2. Create a policy with the permissions to create an EC2 isntance
+3. Configure the user in aws cli in your standalone environment
+4. Create a KeyPair (For this case I use "jb_aws_keypair.pem")
 
 ## Instructions
 
@@ -46,19 +33,32 @@ This project goal is to do a small example how to use this technology:
 
 ### 1. Running the infraestructure in a standalone environment
 
-a. Clone this repository in your local environment
+a. Configure the user in your aws cli
 
-b. Configure the user in your aws cli
+b. Create an EC2 instance using the Wizard
 
-c. Execute the following commands
+c. Connect to the EC2 instance and clone this repository in the EC2 instance
 ```bash
-cd infraestructure
+chmod 400 jb_aws_keypair.pem
+ssh -i "jb_aws_keypair.pem" ubuntu@ec2-56-23-79-154.us-west-2.compute.amazonaws.com
+git clone https://github.com/JoseBerrocal/Ansible_testing_project_01.git
 ```
 
-d. Test the installation of the software
+d. Install Ansible
 ```bash
-(.able-infra)
+sh install_ansible.sh
 ```
+
+e. Update "nginx_ansible/roles/nginx/vars/main.yaml" with external IP of the EC2 instance
+
+f. Run Ansible
+```bash
+cd nginx_ansible
+ansible-playbook -i inventory main.yaml
+```
+
+d. Access the URL of the EC2 instance, the output can be the following
+
 
 
 ## Enhancements
