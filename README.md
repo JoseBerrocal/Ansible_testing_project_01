@@ -58,7 +58,7 @@ ansible-playbook -i inventory main.yaml
 ```
 
 d. Access the URL of the EC2 instance, the output can be the following
-
+![alt text](https://github.com/JoseBerrocal/Ansible_testing_project_01/blob/master/images/ansible_project_01_outoput.png)
 
 
 ## Enhancements
