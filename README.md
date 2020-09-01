@@ -1,10 +1,10 @@
 # Ansible_testing_project_01
-Testing the instalation of software remotely using a book
+Using my projects in udacity as a reference I will test the instalation of software remotely using a ansible playbook
 
 
 # Overview
 
-The main focus for this project is to prepare the machines with the required software to run the application, for this purpose ansible will be use
+The main focus for this project is to prepare the machine with the required software to run the application, for this purpose ansible will be use to install nginx
 
 
 ### Project Tasks
@@ -12,13 +12,9 @@ The main focus for this project is to prepare the machines with the required sof
 This project goal is to do a small example how to use this technology:
 * Create a new user
 * Provide roles to the new user
-* Install a VM
-* Install the software requried using books in ansible
-
-
-## Project Plan
-
-* [Trello board for the project](https://trello.com/b/cdioDvZb/building-a-ci-cd-pipeline)
+* Install an EC2 instance
+* Install ansible
+* Install nginx software using ansible playbook
 
 ## Pre-requisites
 
@@ -29,9 +25,7 @@ This project goal is to do a small example how to use this technology:
 
 ## Instructions
 
-* Architectural Diagram 
-
-### 1. Running the infraestructure in a standalone environment
+### 1. Running the infraestructure in a EC2 instance
 
 a. Configure the user in your aws cli
 
@@ -46,6 +40,7 @@ git clone https://github.com/JoseBerrocal/Ansible_testing_project_01.git
 
 d. Install Ansible
 ```bash
+cd Ansible_testing_project_01
 sh install_ansible.sh
 ```
 
